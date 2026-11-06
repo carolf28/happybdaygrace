@@ -22,12 +22,9 @@
 		--accent: teal;
 		--bg: #f6eef2;
 		--gradient-top: white;
-		--gradient-bottom: rgb(240, 248, 255, .8);
+		--gradient-bottom: rgba(240, 248, 255, .8);
 		--title: #8b5e3c;
 		--pink: #e0609a;
-	}
-	header {
-		background: url('../../../microscopy/arthrospira.png');
 	}
 /* end light mode styling */
 
@@ -57,8 +54,7 @@ body {
 	background-color: var(--gradient-top);
 	/* small check pattern tiled across the whole page */
 	background-image: url("assets/textures/checkbg.png");
-	background-attachment: fixed;
-	background-repeat: repeat;
+	background-repeat: repeat; /* scrolls with the page: Safari can drop fixed backgrounds */
 }
 /* lace strip along the top of the page, edge to edge */
 body::before {
@@ -86,6 +82,7 @@ body::after {
 	background-size: 100% 3px, 3px 100%;
 	pointer-events: none; /* clicks pass straight through */
 	z-index: -1; /* above the background, behind the site */
+	transform: translateZ(0); /* own layer so Safari keeps it painted while scrolling */
 }
 
 
