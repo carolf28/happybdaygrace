@@ -32,24 +32,10 @@
 /* end light mode styling */
 
 
-/* start dark mode styling */
-	@media (prefers-color-scheme: dark) {
-		:root {
-			--text: white;
-			--border: #5a7678;
-			--accent: #74C365;
-			--bg: rgb(70,50,65,.8);
-			--gradient-bottom: rgb(55, 40, 52);
-			--gradient-top: #4a3a47;
-			--title: #e8cdb2;
-			--pink: #ffa3cf;
-			a:link { color: #8fc4dc; } /* slightly darker lightblue */
-		}
-		header {
-			background: url('../../../microscopy/dolichospermum.png');
-		}
-	}
-/* end dark mode styling */
+/* always the light pink look, even when the device is in dark mode */
+:root {
+	color-scheme: light;
+}
 
 
 * { 
