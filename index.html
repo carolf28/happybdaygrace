@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="styles.css" rel="stylesheet" type="text/css" media="all">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>happy bday Grace &lt;3</title>
+	<link rel="icon" type="image/gif" href="assets/pixels/cherry.gif">
+</head>
+<body>
+
+	<div class="container">
+
+		<img class="sticker" src="assets/icons/sticker1.png" alt="">
+
+		<header>
+			<span>happy birthday Grace!</span>
+		</header>
+		
+		<!-- left column: profile box with a pink box under it -->
+		<div class="small">
+			<section class="another">
+				<!-- profile picture: assets/images/profile.png -->
+				<div class="profile-pic"></div>
+				<h2>Grace Mostyn</h2>
+				<p class="profile-info">
+					<span><strong>Age</strong>30</span>
+					<span><strong>Birthday</strong>8th of November</span>
+					<span><strong>Zodiac</strong>Scorpio</span>
+					<span><strong>Job</strong>Graphic Designer &amp; Creative Director</span>
+					<span><strong>Status</strong>In love with Nevan</span>
+				</p>
+			</section>
+
+			<div class="side-note">
+				<!-- music player: the song list is at the top of player.js -->
+				<div class="player">
+					<div class="player-screen">
+						<div class="track-info"><span id="track-title">loading…</span></div>
+						<div class="time-display" id="time-display">00:00 / 00:00</div>
+					</div>
+					<div class="progress-container" id="progress-container">
+						<div class="progress-bar" id="progress-bar"></div>
+					</div>
+					<div class="player-controls">
+						<button class="btn-player" id="btn-prev" aria-label="previous song"><span class="icon icon-skip flip"></span></button>
+						<button class="btn-player" id="btn-play" aria-label="play"><span class="icon icon-play" id="play-icon"></span></button>
+						<button class="btn-player" id="btn-next" aria-label="next song"><span class="icon icon-skip"></span></button>
+					</div>
+					<audio id="audio-element" preload="metadata"></audio>
+				</div>
+			</div>
+		</div>
+
+		<section class="half welcome">
+			<div class="welcome-inner">
+				<!-- the letter (home) -->
+				<div id="letter">
+					<h1>Welcome to your birthday page, Grace!</h1>
+					<div class="pink-note">
+						<!-- second stamp strip (stamps 9-18), rolls like the one in the right column -->
+						<div class="stamp-carousel pink-stamps">
+							<div class="stamp-track">
+								<img src="assets/stamps/stamp9.webp" alt="">
+								<img src="assets/stamps/stamp10.png" alt="">
+								<img src="assets/stamps/stamp11.png" alt="">
+								<img src="assets/stamps/stamp13.jpg" alt="">
+								<img src="assets/stamps/stamp14.png" alt="">
+								<img src="assets/stamps/stamp15.png" alt="">
+								<img src="assets/stamps/stamp16.gif" alt="">
+								<img src="assets/stamps/stamp17.png" alt="">
+								<img src="assets/stamps/stamp18.png" alt="">
+								<!-- same stamps again so the loop is seamless -->
+								<img src="assets/stamps/stamp9.webp" alt="">
+								<img src="assets/stamps/stamp10.png" alt="">
+								<img src="assets/stamps/stamp11.png" alt="">
+								<img src="assets/stamps/stamp13.jpg" alt="">
+								<img src="assets/stamps/stamp14.png" alt="">
+								<img src="assets/stamps/stamp15.png" alt="">
+								<img src="assets/stamps/stamp16.gif" alt="">
+								<img src="assets/stamps/stamp17.png" alt="">
+								<img src="assets/stamps/stamp18.png" alt="">
+							</div>
+						</div>
+					</div>
+					<h2 class="subtitle">a web present from carolf</h2>
+					<img class="welcome-cake" src="assets/images/cake.gif" alt="birthday cake">
+					<h3>Dear Grace,</h3>
+					<p>I hope you have the loveliest birthday! It's been a blessing to have you in my life for the last 2 years. I appreciate all the memories we've created together, with friends and just the two of us, and I can't wait to make more :)</p>
+					<p>I was a bit unsure what to gift you on this special day, so I decided to create a nostalgic webpage. Birthdays are nostalgic anyway, eheh.</p>
+					<p>There are a lot of lucky charms throughout the site because I have a feeling our future is bright and full of luck <img class="inline-charm" src="assets/pixels/luckycharm.webp" alt="four-leaf clover"></p>
+					<img class="letter-beanies" src="assets/pixels/happy_day.gif" alt="">
+					<p class="made-with-love"><img src="assets/pixels/g1.gif" alt=""> made with love <img src="assets/pixels/g1.gif" alt=""></p>
+					<div class="letter-space"></div> <!-- empty space at the end of the letter -->
+				</div>
+
+				<!-- the gallery, shown instead of the letter when "gallery" is clicked -->
+				<div id="gallery" hidden>
+					<h1>Gallery</h1>
+					<div class="gallery-grid">
+						<a href="assets/photos-grace-web/grace01.jpg" data-date="10 24 '26"><img src="assets/photos-grace-web/grace01.jpg" alt="photo of Grace" loading="lazy"></a>
+						<a href="assets/photos-grace-web/grace02.jpg" data-date="04 25 '26"><img src="assets/photos-grace-web/grace02.jpg" alt="photo of Grace" loading="lazy"></a>
+						<a href="assets/photos-grace-web/grace03.jpg" data-date="07 03 '26"><img src="assets/photos-grace-web/grace03.jpg" alt="photo of Grace" loading="lazy"></a>
+						<a href="assets/photos-grace-web/grace04.jpg" data-date="07 03 '26"><img src="assets/photos-grace-web/grace04.jpg" alt="photo of Grace" loading="lazy"></a>
+						<a href="assets/photos-grace-web/grace05.jpg" data-date="07 03 '26"><img src="assets/photos-grace-web/grace05.jpg" alt="photo of Grace" loading="lazy"></a>
+						<a href="assets/photos-grace-web/grace06.jpg" data-date="07 03 '26"><img src="assets/photos-grace-web/grace06.jpg" alt="photo of Grace" loading="lazy"></a>
+						<a href="assets/photos-grace-web/grace07.jpg" data-date="08 16 '26"><img src="assets/photos-grace-web/grace07.jpg" alt="photo of Grace" loading="lazy"></a>
+						<a href="assets/photos-grace-web/grace08.jpg" data-date="08 16 '26"><img src="assets/photos-grace-web/grace08.jpg" alt="photo of Grace" loading="lazy"></a>
+						<a href="assets/photos-grace-web/grace09.jpg" data-date="08 16 '26"><img src="assets/photos-grace-web/grace09.jpg" alt="photo of Grace" loading="lazy"></a>
+						<a href="assets/photos-grace-web/grace10.jpg" data-date="08 22 '26"><img src="assets/photos-grace-web/grace10.jpg" alt="photo of Grace" loading="lazy"></a>
+						<a href="assets/photos-grace-web/grace11.jpg" data-date="07 03 '26"><img src="assets/photos-grace-web/grace11.jpg" alt="photo of Grace" loading="lazy"></a>
+						<a href="assets/photos-grace-web/grace12.jpg" data-date="07 03 '26"><img src="assets/photos-grace-web/grace12.jpg" alt="photo of Grace" loading="lazy"></a>
+						<a href="assets/photos-grace-web/grace13.jpg" data-date="09 25 '26"><img src="assets/photos-grace-web/grace13.jpg" alt="photo of Grace" loading="lazy"></a>
+						<a href="assets/photos-grace-web/grace14.jpg" data-date="10 24 '26"><img src="assets/photos-grace-web/grace14.jpg" alt="photo of Grace" loading="lazy"></a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<div class="small">
+			<nav>
+				<div class="nav-inner">
+					<div class="nav-title">
+						<span>navigation</span>
+					</div>
+					<a href="#home"><img class="nav-heart" src="assets/pixels/cherry.gif" alt=""> home</a>
+					<a href="#gallery"><img class="nav-heart" src="assets/pixels/sparkle.gif" alt=""> gallery</a>
+					<a href="https://www.etsy.com/pt/listing/4600006352/urso-de-pelucia-colecionavel-charlie" target="_blank" rel="noopener"><img class="nav-heart" src="assets/pixels/bunny.gif" alt=""> teddy</a>
+				</div>
+			</nav>
+			<!-- optional spot for styled button outside the navigation box -->
+			<img class="divider" src="assets/textures/rosesdivider.webp" alt="">
+
+			<div class="square-box">
+				<!-- stamp strip: the stamps roll through the box in a loop -->
+				<div class="stamp-carousel">
+					<div class="stamp-track">
+						<img src="assets/stamps/stamp1.gif" alt="">
+						<img src="assets/stamps/stamp2.gif" alt="">
+						<img src="assets/stamps/stamp3.webp" alt="">
+						<img src="assets/stamps/stamp4.png" alt="">
+						<img src="assets/stamps/stamp5.png" alt="">
+						<img src="assets/stamps/stamp6.gif" alt="">
+						<img src="assets/stamps/stamp7.gif" alt="">
+						<img src="assets/stamps/stamp8.gif" alt="">
+						<!-- same stamps again so the loop is seamless -->
+						<img src="assets/stamps/stamp1.gif" alt="">
+						<img src="assets/stamps/stamp2.gif" alt="">
+						<img src="assets/stamps/stamp3.webp" alt="">
+						<img src="assets/stamps/stamp4.png" alt="">
+						<img src="assets/stamps/stamp5.png" alt="">
+						<img src="assets/stamps/stamp6.gif" alt="">
+						<img src="assets/stamps/stamp7.gif" alt="">
+						<img src="assets/stamps/stamp8.gif" alt="">
+					</div>
+				</div>
+			</div>
+
+			<div class="q-box">
+				<div class="love-divider"></div>
+				<p class="love-title">Three things I love about Grace:</p>
+				<p class="love-list">
+					<img class="love-heart" src="assets/pixels/heart3things.gif" alt="">gentle heart<br>
+					<img class="love-heart" src="assets/pixels/heart3things.gif" alt="">cute inside/out<br>
+					<img class="love-heart" src="assets/pixels/heart3things.gif" alt="">creative
+				</p>
+				<!-- 4 little characters along the bottom of the box -->
+				<div class="love-chars">
+					<img src="assets/pixels/box3things.gif" alt="">
+					<img src="assets/pixels/box3things2.gif" alt="">
+					<img src="assets/pixels/box3things3.gif" alt="">
+					<img src="assets/pixels/box3things4.gif" alt="">
+				</div>
+			</div>
+		</div>
+		
+		<section class="full">
+			<!-- blinkie strip: rolls like the stamps (same marquee, slower because it is longer) -->
+			<div class="stamp-carousel blinkie-carousel">
+				<div class="stamp-track">
+					<img src="assets/blinkies/pony-blinkie.gif" alt="">
+					<img src="assets/blinkies/blinkie8.gif" alt="">
+					<img src="assets/blinkies/blinky19.gif" alt="">
+					<img src="assets/blinkies/blinkie3.gif" alt="">
+					<img src="assets/blinkies/blinkie11.gif" alt="">
+					<img src="assets/blinkies/blinkie7.gif" alt="">
+					<img src="assets/blinkies/blinky18.gif" alt="">
+					<img src="assets/blinkies/blinkie15.gif" alt="">
+					<img src="assets/blinkies/blinkie6.gif" alt="">
+					<img src="assets/blinkies/blinkie10.gif" alt="">
+					<img src="assets/blinkies/blinkie9.gif" alt="">
+					<!-- same blinkies again so the loop is seamless -->
+					<img src="assets/blinkies/pony-blinkie.gif" alt="">
+					<img src="assets/blinkies/blinkie8.gif" alt="">
+					<img src="assets/blinkies/blinky19.gif" alt="">
+					<img src="assets/blinkies/blinkie3.gif" alt="">
+					<img src="assets/blinkies/blinkie11.gif" alt="">
+					<img src="assets/blinkies/blinkie7.gif" alt="">
+					<img src="assets/blinkies/blinky18.gif" alt="">
+					<img src="assets/blinkies/blinkie15.gif" alt="">
+					<img src="assets/blinkies/blinkie6.gif" alt="">
+					<img src="assets/blinkies/blinkie10.gif" alt="">
+					<img src="assets/blinkies/blinkie9.gif" alt="">
+				</div>
+			</div>
+		</section>
+		
+		<section class="third third-left">
+			<p class="love-title">Wishes for your birthday</p>
+			<p class="love-list">
+				<img class="wish-bear" src="assets/pixels/wishesbear.png" alt="">surrounded by people you love<br>
+				<img class="wish-bear" src="assets/pixels/wishesbear.png" alt="">big birthday cake<br>
+				<img class="wish-bear" src="assets/pixels/wishesbear.png" alt="">many hugs
+			</p>
+			<img class="wishes-bears" src="assets/textures/ribbonborder.gif" alt="">
+		</section>
+		
+		<section class="third third-middle">
+			<!-- scrolls inside the box (title too); stickers placed at random spots going down -->
+			<div class="sticker-scroll">
+				<p class="stickers-title">stickers</p>
+				<div class="sticker-board" style="height:408px;">
+					<!-- jelly world first, so it sits behind the other stickers -->
+					<img src="assets/stickers/pdwfOrm.png" alt="" style="top:204px; left:2%; width:170px; rotate:-6deg;">
+					<img src="assets/stickers/TeLqhQh.png" alt="" style="top:12px; left:74%; width:37px; rotate:-8deg;">
+					<img src="assets/stickers/cDVoCSl.png" alt="" style="top:10px; left:4%; width:66px; rotate:10deg;">
+					<img src="assets/stickers/j4ayimi.gif" alt="" style="top:262px; left:6%; width:51px; rotate:9deg;">
+					<img src="assets/stickers/l7f0Lk9.png" alt="" style="top:88px; left:6%; width:51px; rotate:-9deg;">
+					<img src="assets/stickers/GXQf9rp_d.webp" alt="" style="top:80px; left:68%; width:62px; rotate:10deg;">
+					<img src="assets/stickers/SNGo3WD.png" alt="" style="top:323px; left:48%; width:110px; rotate:8deg;">
+					<img src="assets/stickers/8Kpewam.png" alt="" style="top:163px; left:4%; width:56px; rotate:-10deg;">
+					<img src="assets/stickers/7vEeRh0.gif" alt="" style="top:146px; left:54%; width:51px; rotate:12deg;">
+					<img src="assets/stickers/8noheGe.png" alt="" style="top:44px; left:44%; width:40px; rotate:-11deg;">
+					<img src="assets/stickers/RZ12jWs.png" alt="" style="top:270px; left:72%; width:42px; rotate:-10deg;">
+					<img src="assets/stickers/MbGVrYn.png" alt="" style="top:311px; left:38%; width:44px; rotate:11deg;">
+					<img src="assets/stickers/BcniS4P.png" alt="" style="top:350px; left:6%; width:56px; rotate:-8deg;">
+				</div>
+			</div>
+		</section>
+		
+		<section class="third third-right">
+			<p class="stickers-title">chat <img class="chat-icon" src="assets/pixels/chat.gif" alt=""></p>
+			<div class="chat-messages" id="chat-messages">
+				<p class="chat-empty">no messages yet ♡ be the first!</p>
+			</div>
+			<form class="chat-form" id="chat-form">
+				<input id="chat-name" type="text" placeholder="name" maxlength="20" required>
+				<input id="chat-text" type="text" placeholder="message" maxlength="200" required>
+				<button type="submit" title="send">♡</button>
+			</form>
+		</section>
+		
+	</div>
+
+	<footer>
+		<span></span>
+	</footer>
+
+	<!-- big photo viewer for the gallery -->
+	<div class="photo-viewer" id="photo-viewer" hidden>
+		<img id="photo-viewer-img" src="" alt="photo of Grace">
+	</div>
+
+	<!-- falling bubbles, like sakuraducky -->
+	<div class="bubbles" aria-hidden="true">
+		<div class="bubble"><img src="assets/icons/bubble.png" alt=""></div>
+		<div class="bubble"><img src="assets/icons/bubble.png" alt=""></div>
+		<div class="bubble"><img src="assets/icons/bubble.png" alt=""></div>
+		<div class="bubble"><img src="assets/icons/bubble.png" alt=""></div>
+		<div class="bubble"><img src="assets/icons/bubble.png" alt=""></div>
+		<div class="bubble"><img src="assets/icons/bubble.png" alt=""></div>
+	</div>
+
+	<script src="player.js?v=5"></script>
+	<script src="gallery.js?v=4"></script>
+	<script src="chat.js?v=1"></script>
+</body>
+</html>

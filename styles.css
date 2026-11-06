@@ -1,0 +1,1087 @@
+/* CYANOBACTERIA.CSS v1.1 */
+/* HTML/CSS layout template from https://ribo.zone/free/layouts/ */
+/* last updated: june 28, 2026 */
+
+@font-face {
+	font-family: 'Spirit';
+	src: url("assets/fonts/spirit.ttf");
+}
+@font-face {
+	font-family: 'Sunny Love';
+	src: url("assets/fonts/sunny-love.ttf");
+}
+@font-face {
+	font-family: 'rainyhearts';
+	src: url("assets/fonts/rainyhearts.ttf");
+}
+
+/* start light mode styling */
+	:root {
+		--text: darkslategrey;
+		--border: lightgrey;
+		--accent: teal;
+		--bg: #f6eef2;
+		--gradient-top: white;
+		--gradient-bottom: rgb(240, 248, 255, .8);
+		--title: #8b5e3c;
+		--pink: #e0609a;
+	}
+	header {
+		background: url('../../../microscopy/arthrospira.png');
+	}
+/* end light mode styling */
+
+
+/* start dark mode styling */
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--text: white;
+			--border: #5a7678;
+			--accent: #74C365;
+			--bg: rgb(70,50,65,.8);
+			--gradient-bottom: rgb(55, 40, 52);
+			--gradient-top: #4a3a47;
+			--title: #e8cdb2;
+			--pink: #ffa3cf;
+			a:link { color: #8fc4dc; } /* slightly darker lightblue */
+		}
+		header {
+			background: url('../../../microscopy/dolichospermum.png');
+		}
+	}
+/* end dark mode styling */
+
+
+* { 
+	box-sizing: border-box;
+	scrollbar-color:  var(--border) transparent; /* thumb colour, see-through track */
+}
+html {
+	overscroll-behavior: none;
+}
+/* custom pink cursor everywhere, links included */
+html, a, button {
+	cursor: url("assets/icons/cursor.gif") 0 0, auto;
+}
+body {
+	padding: 10px;
+	font-family: 'rainyhearts', sans-serif;
+	color: var(--text);
+
+	background-color: var(--gradient-top);
+	/* small check pattern tiled across the whole page */
+	background-image: url("assets/textures/checkbg.png");
+	background-attachment: fixed;
+	background-repeat: repeat;
+}
+/* lace strip along the top of the page, edge to edge */
+body::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 24px;
+	opacity: 0.8;
+	background: url("assets/textures/bordertop.png") repeat-x left top / auto 100%; /* scaled up to the strip's height */
+	image-rendering: pixelated; /* keeps the pixel lace crisp when enlarged */
+	pointer-events: none; /* clicks pass straight through */
+	z-index: 2; /* sits above the scan lines and the site */
+}
+/* scan lines over the background, like an old TV screen */
+body::after {
+	content: "";
+	position: fixed;
+	inset: 0;
+	opacity: .5;
+	background:
+		linear-gradient(rgb(242 17 129 / 25%) 50%, rgba(0, 0, 0, 0.1) 50%),
+		linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.01));
+	background-size: 100% 3px, 3px 100%;
+	pointer-events: none; /* clicks pass straight through */
+	z-index: -1; /* above the background, behind the site */
+}
+
+
+.container {
+	max-width: 55rem;
+	margin: 5vw auto 12px auto;
+	border: 45px solid transparent;
+	border-image: url("assets/textures/border-plate.gif") 55 fill round;
+	background-clip: padding-box; /* keep the background from showing behind the border image */
+	display: flex;
+	flex-wrap: wrap;
+	padding: 5px;
+	gap: 5px;
+
+	/* container background pattern */
+	background-color: var(--gradient-bottom);
+	background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, var(--gradient-bottom) 9px ), repeating-linear-gradient( var(--bg), var(--bg));
+	position: relative;
+}
+/* sticker sitting on the top right corner of the box */
+.sticker {
+	position: absolute;
+	width: 65px;
+	top: -84px;
+	right: -50px;
+	z-index: 1;
+	/* washed towards white and a little see-through, like the stickers box */
+	filter: contrast(0.92) brightness(1.04) saturate(0.92);
+	opacity: 0.96;
+}
+/* these control the column widths */
+.small { flex: 1 1 9%; }
+.large { flex: 1 1 82%; }
+.full { flex: 1 1 100%; }
+.half { flex: 1 1 49%; }
+.third { flex: 1 1 30%; } /* three side by side */
+
+
+header {
+	background-color: #fff4f9; /* same pink as the "another section" box */
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	height: 120px; /* change banner height here*/
+	border: 10px solid transparent;
+	border-image: url("assets/textures/borderpink2.png") 10 round; /* same as the box under the welcome title */
+	background-clip: padding-box; /* keep the background from showing behind the border image */
+	position: relative;
+}
+/* pink bow lace along the top, inside the banner */
+header::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 21px;
+	background: url("assets/textures/lace.png") repeat-x center top / auto 100%;
+	image-rendering: pixelated;
+}
+header span {
+	z-index: 1; /* title stays above the lace */
+	font-family: 'Spirit', cursive;
+	font-size: 30px;
+	position: absolute;
+	bottom: 0;
+	right: 10px;
+	margin: 10px;
+	font-weight: bold;
+
+	/* white letters with a pink outline, like ribbondoll */
+	color: white;
+	text-shadow: 2px 0px #FFB0C9, 0px 2px #FFB0C9, -2px 0px #FFB0C9, 0px -2px #FFB0C9, 3px 3px 3px #a37367;
+}
+/* a little bow on each side of the title */
+header span::before,
+header span::after {
+	content: "";
+	display: inline-block;
+	width: 18px;
+	height: 14px;
+	background: url("assets/icons/bow.png") no-repeat center / contain;
+	image-rendering: pixelated; /* keeps the pixel bow crisp when enlarged */
+	vertical-align: middle;
+}
+header span::before {
+	margin-right: 10px;
+}
+header span::after {
+	margin-left: 10px;
+}
+
+
+/* navigation box */
+nav {
+	/* always light, so keep the light mode colours inside it */
+	--text: darkslategrey;
+	--title: #8b5e3c;
+	--pink: #e0609a;
+	--bg: #f6eef2;
+	color: var(--text);
+	/* lace strips stacked from top to bottom, scaled to the box's width */
+	background: white url("assets/textures/lacebg.png") repeat-y center top / 100% auto;
+	/* same border and dashed line as the music player box, in a lighter pink to suit the lace */
+	border: 10px solid transparent;
+	border-image: url("assets/textures/borderpink2-light.png") 10 round;
+	background-clip: padding-box; /* keep the background from showing behind the border image */
+	outline: 1px dashed rgba(255, 176, 201, 0.7); /* #FFB0C9 at 70% */
+	outline-offset: -8px;
+	border-radius: 12px; /* rounds the dashed line's corners */
+}
+.nav-inner {
+	margin: -10px;
+	padding: 15px; /* 3px less, to make up for the thicker pink border */
+}
+.nav-title {
+	text-align: center;
+	font-size: 1.25rem;
+	margin: 1px 1px 6px 1px;
+	padding: 6px 7px;
+	background: var(--bg) url("assets/textures/gridpattern.png");
+	background-size: 40px; /* smaller tiles so more of the grid shows */
+	border-radius: 5px;
+	color: var(--title);
+}
+nav a {
+	display: block;
+	font-size: 1.15rem;
+	margin: 5px;
+	padding: 2px 7px;
+	text-decoration: none;
+}
+nav a .nav-heart {
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	image-rendering: pixelated; /* keeps pixel art crisp when shrunk */
+}
+nav a:link, nav a:visited { 
+	color: var(--text);
+}
+nav a:hover, nav a:focus, nav a.active {
+	color: var(--pink);
+}
+
+/* roses divider under the navigation box, kept at full height and cropped to the column width */
+div.small > img {
+	display: block;
+	width: calc(100% - 12px); /* same width as the stamp box under it, outline included */
+	height: 14px;
+	object-fit: cover; /* scales the strip to the height and crops the sides */
+	object-position: 15.6% center; /* crop lands in the gaps, so no flower is cut: bud, rose, bud, rose, bud */
+	margin: 10px auto 1px auto; /* same gap above and below once the box's outline is counted */
+}
+
+/* box under the ribbon with the pink square pattern */
+.square-box {
+	border: 3px solid white;
+	outline: 1px solid #D1B9B3;
+	border-radius: 5px;
+	margin: 10px 7px 0 7px; /* sides line up with the inside of the lace border on the box below */
+	box-shadow: 2px 2px 2px #a3736710;
+	background: url("assets/textures/squarebackground.gif");
+	color: darkslategrey; /* stays readable on the pattern in dark mode too */
+	text-align: center;
+	padding: 26px 10px 10px 10px; /* extra room on top for the lace */
+	position: relative;
+}
+/* lace along the top of the box, styled like ribbondoll */
+.square-box::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 20px;
+	background: url("assets/textures/bordertop.png") repeat-x left top / auto 100%;
+	filter: drop-shadow(0px 1px #D1B9B3);
+}
+
+/* strip of stamps rolling through the square box */
+.stamp-carousel {
+	overflow: hidden;
+	/* width 0 + min-width 100% fills the box without the long strip stretching the column */
+	width: 0;
+	min-width: 100%;
+}
+.stamp-track {
+	display: flex;
+	width: max-content;
+	/* steps() makes it tick along in little jumps, like the marquee you sent */
+	animation: stamps 23s steps(200) infinite;
+}
+.stamp-track img {
+	flex: none;
+	height: 40px;
+	width: auto;
+	margin-right: 6px; /* space between stamps, kept on every stamp so the loop lines up */
+}
+.stamp-carousel:hover .stamp-track {
+	animation-play-state: paused; /* hover to stop the strip */
+}
+/* blinkie strip in the full width section: same marquee, blinkies at their real size */
+.blinkie-carousel .stamp-track {
+	animation-duration: 88s; /* the blinkie set is much longer, so this keeps a similar speed */
+	animation-timing-function: steps(730);
+}
+.blinkie-carousel .stamp-track img {
+	height: 24px; /* a little bigger than their real 20px */
+	image-rendering: pixelated;
+}
+/* moves left by exactly one set of stamps, then starts over on the copy */
+@keyframes stamps {
+	from { transform: translateX(0); }
+	to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+	.stamp-track { animation: none; }
+}
+
+/* the navigation column stacks its boxes so the last one can fill the space left */
+div.small {
+	display: flex;
+	flex-direction: column;
+}
+/* box with the pink scalloped border that fills the rest of the column */
+.q-box {
+	flex: 1;
+	margin-top: 8px;
+	border: 16px solid transparent;
+	border-image: url("assets/textures/qborder.png") 27 / 30px round;
+	/* pink gingham with clovers, repeated; the 50% white layer on top shows it at 50% */
+	background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), white url("assets/textures/clover3.png");
+	background-clip: padding-box; /* keep the background from showing behind the border image */
+	filter: drop-shadow(0 0 1px #d1b3bb);
+	color: darkslategrey; /* stays readable on white in dark mode too */
+	text-align: center;
+	padding: 6px 4px 14px 4px; /* less on top, rest keeps text clear of the scallops */
+}
+/* title of the "3 things I love" box */
+.love-title {
+	font-size: 0.9rem;
+	line-height: 1; /* lines closer together when it wraps */
+	color: #6e6268; /* a touch darker grey, like the other titles */
+}
+/* row of little lace hearts between the title and the 3 points */
+.love-divider {
+	height: 18px;
+	margin: -8px -4px 6px -4px; /* pulled up and out so it hangs right under the border */
+	background: url("assets/textures/sml-lace-3.png") repeat-x center / auto 100%;
+}
+/* the 3 points in the box under the stamps line up on the left */
+.love-list {
+	text-align: left;
+	font-size: 0.9rem; /* same size as the title */
+	color: #7a6e74; /* soft grey, like the rest of the text */
+}
+/* the 4 characters fill the space left at the bottom of the box, side by side */
+.q-box {
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 3px; /* characters sit closer to the bottom scallops */
+}
+/* spacing above and below the text trimmed a little so the characters fit without growing the box */
+.q-box .love-divider {
+	margin-bottom: 6px; /* a bit of space above the title */
+}
+.q-box .love-title {
+	margin: 0 0 4px 0;
+	font-size: 0.9rem;
+}
+.q-box .love-list {
+	margin: 6px 0 0 0; /* a little space under the title */
+	padding-left: 5px; /* points sit a little in from the edge */
+	font-size: 0.9rem;
+}
+/* little pixel heart in front of each point */
+.love-heart {
+	width: 12px;
+	height: 12px;
+	margin-right: 3px;
+	vertical-align: -1px;
+	image-rendering: pixelated;
+}
+.love-chars {
+	flex: 1;
+	min-height: 0; /* never makes the box taller */
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin: 0 -4px; /* use the box's side padding too, so the characters can be bigger */
+}
+.love-chars img {
+	width: 25%;
+	height: auto;
+	image-rendering: pixelated;
+}
+section {
+	border: 7px solid transparent;
+	border-image: url("assets/textures/border1.png") 7 round;
+	background: linear-gradient(var(--gradient-top),var(--gradient-bottom));
+	background-clip: padding-box; /* keep the background from showing behind the border image */
+	padding: 5px;
+}
+
+/* full width section: white-pink pattern at 0.6 opacity (a 40% white layer on top fades it) */
+section.full {
+	/* pink gingham border (the page's checkbg) around the blinkies, pattern inside as before */
+	border: 10px solid transparent;
+	border-image: none;
+	background:
+		url("assets/textures/lacebg.png") center top / 140px auto padding-box, /* same lace as the navigation box, at the same size */
+		linear-gradient(white, white) padding-box,
+		url("assets/textures/checkbg-strong.png") 0 0 / 28px 28px border-box; /* deeper pink copy of checkbg, so the checks show more */ /* half size, so the checks show in the thin border */
+	outline: 1px solid #efe1de; /* thin, light edge */
+	box-shadow: inset 0 0 0 1px #efe1de; /* matching line just inside the gingham, around the pattern */
+	border-radius: 10px; /* rounds the corners (the outline follows them) */
+}
+
+/* the 3 sections at the bottom: same scalloped lace border as the "3 things I love" box */
+section.third {
+	border: 16px solid transparent;
+	border-image: url("assets/textures/qborder.png") 27 / 30px round;
+	background-clip: padding-box;
+	filter: drop-shadow(0 0 1px #d1b3bb);
+}
+
+/* left bottom section: the wishes box */
+section.third-left {
+	/* white-pink pattern, faded to 40% by the 60% white layer on top */
+	background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), white url("assets/textures/whitepinkbackg.gif") 0 0 / 60px 60px;
+	background-clip: padding-box;
+	text-align: left; /* title and wishes all on the left */
+	padding: 6px 10px;
+}
+
+/* little pixel picture above the sign-off, centred */
+.letter-beanies {
+	display: block;
+	width: 120px; /* bigger than its real 90px */
+	margin: 20px auto; /* same space above and below */
+	opacity: 0.7; /* softer */
+	image-rendering: pixelated;
+}
+
+/* "made with love" sign-off, centred */
+.made-with-love {
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: -6px; /* sits a little closer to the bottom of the letter box */
+}
+.made-with-love img {
+	width: 26px; /* a tiny bit smaller than its real 31px */
+	opacity: 0.6; /* softer */
+	vertical-align: middle;
+	image-rendering: pixelated;
+}
+
+/* empty space left at the end of the letter */
+.letter-space {
+	height: 0;
+}
+
+/* middle bottom section: same light pink border and dashed line as the navigation box */
+section.third-middle {
+	border: 10px solid transparent;
+	border-image: url("assets/textures/borderpink2-light.png") 10 round;
+	background-clip: padding-box;
+	outline: 1px dashed rgba(255, 176, 201, 0.7); /* #FFB0C9 at 70% */
+	outline-offset: -8px;
+	border-radius: 12px; /* rounds the dashed line's corners */
+	filter: none;
+	background: url("assets/textures/squarebackground.gif"); /* same as the stamps box */
+	background-clip: padding-box;
+}
+
+/* wishes text in the same soft greys as the "3 things" box */
+section.third-left .love-title {
+	color: #6e6268; /* soft grey, like the other titles */
+	font-size: 1rem; /* a bit bigger than the wishes */
+}
+section.third-left .love-list {
+	color: #7a6e74; /* soft grey */
+	margin-top: 4px; /* closer to the lace above */
+}
+section.third-left .love-title {
+	text-align: center; /* title centred, wishes stay on the left */
+	margin-bottom: 12px; /* some space under the title */
+}
+
+
+
+/* lace across the top of the middle section, just under its border (same as the stamps box) */
+section.third-middle::before {
+	content: "";
+	display: block;
+	height: 20px;
+	margin: -5px -5px 5px -5px; /* pulled up and out to the inside edge of the border */
+	background: url("assets/textures/bordertop.png") repeat-x left top / auto 100%;
+	filter: drop-shadow(0px 1px #D1B9B3);
+	opacity: 0.9; /* softer lace */
+}
+
+/* right bottom section: lace strips stacked top to bottom, like the navigation box */
+section.third-right {
+	background: white url("assets/textures/lacebg.png") repeat-y center top / 100% auto;
+	background-clip: padding-box;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding: 3px 6px;
+}
+
+/* chatbox title: same look as the "gallery" navigation link */
+section.third-right .stickers-title {
+	font-family: 'rainyhearts', sans-serif; /* same font, size and colour as the "gallery" navigation link */
+	font-size: 18.4px;
+	font-weight: normal;
+	color: var(--pink); /* same pink as the send heart */
+	text-shadow: none;
+}
+
+/* little pixel icon after the chat title */
+.chat-icon {
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	image-rendering: pixelated;
+}
+
+/* chatbox in the right bottom section */
+.chat-messages {
+	flex: 1 1 0;
+	min-height: 0; /* never makes the box taller, it scrolls instead */
+	overflow-y: auto;
+	background: rgba(255, 255, 255, 0.85);
+	border: 1px dashed #FFB0C9;
+	border-radius: 8px;
+	padding: 4px 7px;
+	font-size: 0.85rem;
+	color: #7a6e74; /* soft grey, like the wishes */
+}
+.chat-messages p {
+	margin: 0 0 4px 0;
+	word-wrap: break-word;
+}
+.chat-messages b {
+	color: var(--pink);
+	font-weight: normal;
+}
+.chat-messages .chat-date {
+	color: #c9b3bd;
+	font-size: 0.7rem;
+}
+.chat-empty {
+	text-align: center;
+	color: #c9b3bd;
+}
+.chat-form {
+	display: flex;
+	gap: 3px;
+}
+.chat-form #chat-name {
+	width: 22%;
+}
+.chat-form #chat-text {
+	flex: 1;
+	min-width: 0;
+}
+.chat-form input,
+.chat-form button {
+	font-family: inherit;
+	font-size: 0.85rem;
+	color: #7a6e74;
+	background: #fff4f9;
+	border: 1px solid #FFB0C9;
+	border-radius: 6px;
+	padding: 2px 5px;
+	outline: none;
+	box-sizing: border-box;
+}
+.chat-form input:focus {
+	border-color: var(--pink);
+}
+.chat-form button {
+	background: #ffe4ee;
+	color: var(--pink);
+	cursor: pointer;
+}
+.chat-form button:hover {
+	background: #FFB0C9;
+	color: white;
+}
+
+/* little pixel bear in front of each wish */
+.wish-bear {
+	width: 16px;
+	height: 16px;
+	margin-right: 4px;
+	vertical-align: -2px;
+	image-rendering: pixelated;
+	filter: brightness(0.93); /* just a touch darker */
+}
+
+/* ribbon divider under the wishes */
+.wishes-bears {
+	display: block;
+	max-width: 100%;
+	margin: 8px auto 0 auto;
+	opacity: 0.75; /* a little softer */
+}
+
+/* little title in the middle section, same lettering as "happy birthday Grace!" but smaller */
+.stickers-title {
+	position: relative; /* stays above the lace */
+	margin: 0;
+	text-align: center;
+	font-family: 'Spirit', cursive;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	text-shadow: 1.5px 0px #FFB0C9, 0px 1.5px #FFB0C9, -1.5px 0px #FFB0C9, 0px -1.5px #FFB0C9, 2px 2px 2px #a37367;
+}
+
+/* middle section: title on top, stickers scroll in the space left (the box keeps its height) */
+section.third-middle {
+	display: flex;
+	flex-direction: column;
+}
+.sticker-scroll {
+	flex: 1 1 0;
+	min-height: 0; /* never makes the box taller, it scrolls instead */
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+.sticker-board {
+	position: relative; /* stickers are placed inside this tall board */
+	margin-top: -22px; /* stickers start up beside the title */
+	overflow: hidden; /* the board's height decides where scrolling stops, even with tilted stickers */
+}
+.sticker-board img {
+	position: absolute;
+	height: auto;
+	/* washed a little towards white so the stickers match the soft colours of the site */
+	filter: contrast(0.75) brightness(1.13) saturate(0.75) drop-shadow(1px 1px 1px #a3736755);
+	opacity: 0.85; /* a little see-through */
+}
+
+/* "another section" box */
+section.another {
+	flex: 1; /* takes the leftover height so the player box below lines up with the other columns */
+	background: #fff4f9; /* same pink as the border */
+	border: 10px solid transparent;
+	border-image: url("assets/textures/borderpink2.png") 10 round;
+	background-clip: padding-box; /* keep the background from showing behind the border image */
+	color: darkslategrey; /* stays readable on white in dark mode too */
+}
+/* pink box under the profile, styled like the box under the welcome title, just big enough for the music player */
+.side-note {
+	margin-top: 5px;
+	border: 10px solid transparent;
+	border-image: url("assets/textures/borderpink2.png") 10 round;
+	background: #FFF4F9 url("assets/textures/musicplayer.jpg") center / cover;
+	background-clip: padding-box;
+	/* dashed line just inside the scalloped border */
+	outline: 1px dashed rgba(255, 176, 201, 0.7); /* #FFB0C9 at 70% */
+	outline-offset: -8px;
+	border-radius: 12px; /* rounds the dashed line's corners */
+	color: darkslategrey;
+	text-align: center;
+	padding: 3px; /* little space around the music player */
+}
+
+/* music player inside the floral box */
+.player {
+	/* width 0 + min-width 100% fills the box without the scrolling title stretching the column */
+	width: 0;
+	min-width: 100%;
+	padding: 4px;
+}
+.player-screen {
+	background: #fff4f9;
+	border: 6px solid transparent;
+	border-image: url("assets/textures/borderpink2.png") 10 round; /* same scalloped border as the buttons */
+	background-clip: padding-box;
+	padding: 2px 4px;
+	font-size: 0.75rem;
+	line-height: 1.3;
+}
+/* long titles scroll sideways */
+.track-info {
+	overflow: hidden;
+	white-space: nowrap;
+	color: #c2577f;
+}
+.track-info span {
+	display: inline-block;
+	padding-left: 100%;
+	animation: track-scroll 8s linear infinite;
+}
+@keyframes track-scroll {
+	to { transform: translateX(-100%); }
+}
+.time-display {
+	font-size: 0.7rem;
+}
+/* whitish bar with a darkish pink outline; fills with pink as the song plays */
+.progress-container {
+	height: 8px;
+	margin: 6px 0;
+	background: #fffafc;
+	border: 1px solid #d2b4bc; /* same colour as the outline of the buttons' scalloped border */
+	border-radius: 4px;
+	overflow: hidden;
+	cursor: pointer;
+}
+.progress-bar {
+	height: 100%;
+	width: 0;
+	background: #FFB0C9;
+}
+.player-controls {
+	display: flex;
+	justify-content: center;
+	gap: 4px;
+}
+/* buttons styled like the snippet you sent */
+.btn-player {
+	height: 30px; /* 45px in the snippet, smaller to fit the narrow box */
+	margin: auto;
+	font-family: inherit;
+	font-size: 11px; /* 15px in the snippet */
+	flex: 1;
+	background-color: #FFF4F9; /* same pink as the scalloped border */
+	border: 6px solid transparent;
+	border-image: url("assets/textures/borderpink2.png") 10 round; /* same scalloped border as the box around the player */
+	background-clip: padding-box;
+	border-radius: 2px;
+	color: #FFB8C7;
+	-webkit-text-stroke-width: 0.5px;
+	-webkit-text-stroke-color: #C48699;
+	padding: 0;
+	font-weight: bold;
+	/* centres the symbol exactly in the button */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
+}
+/* button icons drawn as shapes, so they sit exactly in the middle on every computer */
+.icon {
+	display: block;
+	height: 9px;
+	background: #FFB8C7;
+	filter: drop-shadow(0 0 0.5px #C48699) drop-shadow(0 0 0.5px #C48699); /* thin outline like the snippet */
+}
+.icon-play {
+	width: 8px;
+	clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+.icon-skip {
+	width: 14px;
+	clip-path: polygon(0 0, 50% 50%, 50% 0, 100% 50%, 50% 100%, 50% 50%, 0 100%); /* two arrows */
+}
+.icon-pause {
+	width: 8px;
+	clip-path: polygon(0 0, 35% 0, 35% 100%, 0 100%, 0 0, 65% 0, 100% 0, 100% 100%, 65% 100%, 65% 0); /* two bars */
+}
+/* previous button: the next arrows mirrored */
+.icon.flip {
+	transform: scaleX(-1);
+}
+.btn-player:hover .icon {
+	background: #C48699;
+}
+@media (prefers-reduced-motion: reduce) {
+	.track-info span { animation: none; padding-left: 0; }
+}
+
+/* round profile picture at the top of "another section" */
+.profile-pic {
+	width: 90px;
+	height: 90px;
+	margin: 5px auto 2px auto;
+	border-radius: 50%;
+	border: 3px solid #fbe6ef; /* just a touch deeper than the box's #fff4f9 */
+	/* light pink behind the picture */
+	background: #fde4ef url("assets/images/profile.png") center bottom / 80% auto no-repeat;
+	animation: blink 4s infinite;
+}
+/* loads the closed-eyes picture early so the first blink doesn't flicker */
+.profile-pic::after {
+	content: url("assets/images/profile-blink.png");
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+/* swaps to the closed-eyes picture for a moment every 4 seconds */
+@keyframes blink {
+	0%, 94%, 99%, 100% { background-image: url("assets/images/profile.png"); }
+	95%, 98% { background-image: url("assets/images/profile-blink.png"); }
+}
+@media (prefers-reduced-motion: reduce) {
+	.profile-pic { animation: none; }
+}
+
+/* "Grace Mostyn" under the profile picture */
+section.another h2 {
+	font-size: 1.08rem;
+	color: #c2577f; /* same pink as the welcome title */
+}
+
+/* zodiac and job lines under the name */
+.profile-info {
+	text-align: left;
+	font-size: 0.85rem;
+	line-height: 1.05; /* lines closer together */
+}
+/* each point on its own line, with a little space between points */
+.profile-info span {
+	display: block;
+	margin-bottom: 5px;
+	color: #7a6e74; /* soft warm grey for the answers */
+}
+/* small pink label on its own line, with the answer underneath */
+.profile-info strong {
+	display: block;
+	font-size: 0.7rem;
+	letter-spacing: 1px;
+	color: #c2577f; /* same pink as the welcome title */
+}
+
+/* welcome box */
+section.welcome {
+	/* always white, so keep the light mode colours inside it */
+	--text: darkslategrey;
+	--accent: teal;
+	color: var(--text);
+	background: white url("assets/textures/dotbackg.gif");
+	border: 8px solid transparent;
+	border-image: url("assets/textures/borderpink.png") 8 round;
+	background-clip: padding-box; /* keep the background from showing behind the border image */
+	padding: 0;
+}
+.welcome-inner {
+	padding: 20px;
+	/* fixed size that fits just inside the border, scroll when the content is taller */
+	height: 451px;
+	overflow-y: auto;
+}
+/* space between the chain and the heading under it */
+/* the letter and lists in the welcome box: same soft greys as the profile */
+.welcome-inner h3 {
+	color: #6e6268; /* "Dear Grace," a touch darker, like the name in the profile */
+}
+.welcome-inner p,
+.welcome-inner ul,
+.welcome-inner ol,
+.welcome-inner .subtitle {
+	color: #7a6e74;
+}
+/* little pixel charm sitting in a line of text */
+.inline-charm {
+	vertical-align: middle;
+	height: 18px; /* about the height of the text */
+	width: auto;
+}
+/* welcome title: bold, darkish pink */
+.welcome-inner h1 {
+	font-weight: bold;
+	color: #c2577f;
+}
+.welcome-inner .subtitle {
+	margin-top: 15px;
+	margin-bottom: 25px; /* space before the cake */
+	font-size: 1rem; /* smaller than the other headings */
+}
+/* birthday cake under "a web present from carolf" */
+.welcome-cake {
+	display: block;
+	width: 140px;
+	margin: 0 auto 10px auto;
+}
+/* pink box under the welcome title, as wide as the old divider */
+.pink-note {
+	border: 10px solid transparent;
+	border-image: url("assets/textures/borderpink2.png") 10 round;
+	background-color: #FFF4F9;
+	background-clip: padding-box;
+	height: 50px;
+	margin: 5px;
+	/* dashed line just inside the scalloped border */
+	outline: 1px dashed rgba(255, 176, 201, 0.7); /* #FFB0C9 at 70% */
+	outline-offset: -8px;
+	border-radius: 12px; /* rounds the dashed line's corners */
+	padding: 3px 6px; /* a little space above and below the 40px stamps */
+	box-sizing: border-box;
+	height: 67px; /* 47px inside + the 10px border top and bottom */
+}
+/* both stamp strips a little see-through (the blinkies stay as they are) */
+.square-box .stamp-track img,
+.pink-stamps .stamp-track img {
+	opacity: 0.8;
+}
+/* the stamp strip in this box: 9 stamps instead of 8, so a little slower to keep the same speed */
+.pink-stamps .stamp-track {
+	animation-duration: 26s;
+	animation-timing-function: steps(225);
+	animation-direction: reverse; /* rolls left to right, the other way from the right-column strip */
+}
+/* little heart before and after "a web present from carolf" */
+.welcome-inner .subtitle::before,
+.welcome-inner .subtitle::after {
+	content: url("assets/pixels/abt.gif");
+	vertical-align: middle;
+}
+.welcome-inner .subtitle::before {
+	margin-right: 6px;
+}
+.welcome-inner .subtitle::after {
+	margin-left: 6px;
+}
+
+
+footer {
+	text-align: center;
+	margin-bottom: 5vw;
+	font-size: 0.8rem;
+}
+footer a { 
+	text-decoration: none;
+}
+
+
+h1, h2, h3, h4, h5, h6, p  { 
+	margin: 5px;
+	line-height: 1.2;
+}
+h1 { 
+	font-size: 1.2rem;
+	letter-spacing: 2px;
+	font-weight: normal;
+	text-align: center;
+	padding-bottom: 5px;
+}
+h2 { 
+	font-size: 1.25rem;
+	font-weight: normal;
+	text-align: center;
+}
+h3 { 
+	font-size: 1.1rem;
+}
+h4 { 
+	font-size: 1rem;
+	color: var(--accent);
+	padding-left: 12px;
+}
+
+/* prevents overflow on smaller screens */
+img { max-width: 100%; }
+pre { overflow-x: auto; }
+
+
+a:hover, a:focus {
+	font-style: italic;
+}
+a:visited {
+	color: var(--accent);
+}
+
+
+/* falling bubbles over the whole page, like sakuraducky */
+.bubble {
+	position: fixed;
+	top: -10%;
+	z-index: 9999;
+	pointer-events: none; /* clicks pass straight through */
+	user-select: none;
+	animation-name: bubbles-fall, bubbles-sway;
+	animation-duration: 10s, 3s;
+	animation-timing-function: linear, ease-in-out;
+	animation-iteration-count: infinite, infinite;
+}
+.bubble img {
+	width: 20px;
+	opacity: 0.8; /* a little see-through */
+}
+@keyframes bubbles-fall {
+	0% { top: -10%; }
+	100% { top: 100%; }
+}
+@keyframes bubbles-sway {
+	0%, 100% { transform: translateX(0); }
+	50% { transform: translateX(80px); }
+}
+/* each bubble starts at its own spot and time */
+.bubble:nth-of-type(1) { left: 8%; animation-delay: 1s, 1s; }
+.bubble:nth-of-type(2) { left: 24%; animation-delay: 6s, .5s; }
+.bubble:nth-of-type(3) { left: 40%; animation-delay: 4s, 2s; }
+.bubble:nth-of-type(4) { left: 56%; animation-delay: 2s, 2s; }
+.bubble:nth-of-type(5) { left: 72%; animation-delay: 8s, 3s; }
+.bubble:nth-of-type(6) { left: 88%; animation-delay: 2.5s, 1s; }
+@media (prefers-reduced-motion: reduce) {
+	.bubbles { display: none; }
+}
+
+/* gallery in the welcome box: little polaroids, 3 per row */
+.gallery-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 14px;
+	padding: 4px 6px 10px 6px;
+}
+.gallery-grid a {
+	display: block;
+	background: #ffe4ee; /* pale pink polaroid frame */
+	padding: 5px 5px 14px 5px; /* thicker at the bottom, like a polaroid */
+	box-shadow: 1px 2px 4px #a3736740;
+	rotate: -2deg;
+	transition: rotate 0.2s, scale 0.2s;
+}
+.gallery-grid a:nth-child(even) {
+	rotate: 2deg;
+}
+.gallery-grid a:hover {
+	rotate: 0deg;
+	scale: 1.05;
+}
+.gallery-grid img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 1; /* square crops so the grid stays neat */
+	object-fit: cover;
+}
+/* soft pink wash over each photo */
+.gallery-grid a {
+	position: relative;
+}
+/* old digicam look: grain, a soft dark edge and a pink wash over the photo */
+.gallery-grid a::after {
+	content: "";
+	position: absolute;
+	inset: 5px 5px 14px 5px; /* just over the photo, not the white frame */
+	background: rgba(255, 180, 210, 0.18); /* light pink tint */
+	pointer-events: none;
+}
+/* pink date stamp in the corner, like an old digital camera */
+.gallery-grid a::before {
+	content: attr(data-date);
+	position: absolute;
+	right: 9px;
+	bottom: 18px;
+	z-index: 1;
+	font-family: "Courier New", monospace;
+	font-size: 7px;
+	font-weight: bold;
+	letter-spacing: 0.5px;
+	color: #ffc2da;
+	text-shadow: 0 0 2px #ff5fa2, 0 0 4px #ff5fa299; /* glowing pink digits */
+	pointer-events: none;
+}
+
+/* big photo on top of the page, click anywhere to close */
+.photo-viewer {
+	position: fixed;
+	inset: 0;
+	z-index: 10000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(255, 244, 249, 0.85); /* soft pink veil */
+}
+.photo-viewer[hidden] {
+	display: none;
+}
+.photo-viewer img {
+	max-width: 90vw;
+	max-height: 85vh;
+	background: #ffe4ee; /* same pink frame as the small photos */
+	padding: 8px;
+	box-shadow: 2px 4px 12px #a3736760;
+}
+
